@@ -32,11 +32,12 @@ def convert_drawer_model(model):
     _input_shape = model.input_shape
 #    figure = Model(input_shape=_input_shape[1:])
     print(len(_input_shape))
+    # CNN Model
     if len(_input_shape) == 4:
         figure = Model(input_shape=_input_shape[1:])
+    # MLP Model
     else:
         dims = int(np.sqrt(_input_shape[1]))
-#        _input_shape = _input_shape.reshape(1,dims, dims,1)
         _input_shape = (1,dims, dims,1)
         figure = Model(input_shape=_input_shape[1:])
         figure.add(Flatten())
