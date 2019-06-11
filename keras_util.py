@@ -34,8 +34,10 @@ def convert_drawer_model(model):
     for config in model.get_config()["layers"]:
         class_name = config.get("class_name", False)
         class_config = config.get("config", False)
+        print(class_name,class_config)
         if class_name and class_config:
             class_obj = is_class_object(class_name)
+            print(class_obj)
             if class_name == "Conv2D":
                 conv_2d = get_conv2d_obj(class_obj, class_config)
                 figure.add(conv_2d)
