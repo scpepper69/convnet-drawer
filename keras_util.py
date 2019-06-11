@@ -31,11 +31,12 @@ def is_class_object(class_name):
 def convert_drawer_model(model):
     _input_shape = model.input_shape
 #    figure = Model(input_shape=_input_shape[1:])
+    print(input_shape.ndim)
     if input_shape.ndim == 4:
         figure = Model(input_shape=_input_shape[1:])
     else:
         dims = int(np.sqrt(len(input_shape[1:])))
-        input_shape = input_shape.reshape(1,dims, dims,:).astype(np.float32)
+        input_shape = input_shape.reshape(1,dims, dims,1).astype(np.float32)
         figure = Model(input_shape=_input_shape[1:])
     for config in model.get_config()["layers"]:
         class_name = config.get("class_name", False)
