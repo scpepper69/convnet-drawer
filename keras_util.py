@@ -36,7 +36,8 @@ def convert_drawer_model(model):
         figure = Model(input_shape=_input_shape[1:])
     else:
         dims = int(np.sqrt(_input_shape[1]))
-        _input_shape = _input_shape.reshape(1,dims, dims,1)
+#        _input_shape = _input_shape.reshape(1,dims, dims,1)
+        _input_shape = (1,dims, dims,1)
         figure = Model(input_shape=_input_shape[1:])
     for config in model.get_config()["layers"]:
         class_name = config.get("class_name", False)
