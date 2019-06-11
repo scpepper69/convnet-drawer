@@ -34,8 +34,8 @@ class Model:
     def __init__(self, input_shape):
         self.layers = []
 
-        if len(input_shape) != 3:
-            raise ValueError("input_shape should be rank 3 but received  {}".format(input_shape))
+#        if len(input_shape) != 3:
+#            raise ValueError("input_shape should be rank 3 but received  {}".format(input_shape))
 
         self.feature_maps = []
         self.x = None
