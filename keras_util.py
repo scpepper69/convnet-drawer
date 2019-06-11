@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from keras_models import AlexNet
 from convnet_drawer import Model, Conv2D, MaxPooling2D, Flatten, Dense, GlobalAveragePooling2D
-
+import numpy as np
 
 def get_dense_obj(class_object, config):
     units = config.get("units", False)
