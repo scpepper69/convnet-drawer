@@ -36,15 +36,18 @@ def convert_drawer_model(model):
         class_config = config.get("config", False)
         print(class_name,class_config)
         if class_name and class_config:
-            class_obj = is_class_object(class_name)
+#            class_obj = is_class_object(class_name)
             print(class_obj)
             if class_name == "Conv2D":
+                class_obj = is_class_object(class_name)
                 conv_2d = get_conv2d_obj(class_obj, class_config)
                 figure.add(conv_2d)
             elif class_name == "MaxPooling2D":
+                class_obj = is_class_object(class_name)
                 max_pooling_2d = get_maxpooling2d_obj(class_obj, class_config)
                 figure.add(max_pooling_2d)
             elif class_name == "Dense":
+                class_obj = is_class_object(class_name)
                 dense = get_dense_obj(class_obj, class_config)
                 figure.add(dense)
             elif class_name == "Dropout":
@@ -52,6 +55,7 @@ def convert_drawer_model(model):
             elif class_name == "BatchNormalizationV1":
                 pass
             else:
+                class_obj = is_class_object(class_name)
                 figure.add(class_obj())
         else:
             raise ValueError
