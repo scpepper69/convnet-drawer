@@ -49,6 +49,8 @@ def convert_drawer_model(model):
                 class_obj = is_class_object(class_name)
                 dense = get_dense_obj(class_obj, class_config)
                 figure.add(dense)
+            elif class_name == "Activation":
+                pass
             elif class_name == "Dropout":
                 pass
             elif class_name == "BatchNormalizationV1":
