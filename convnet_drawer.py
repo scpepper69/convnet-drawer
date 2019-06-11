@@ -100,7 +100,8 @@ class Model:
     def save_fig(self, filename):
         self.build()
         string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' \
-                 'width= "{}" height="{}" '.format(self.width, self.height) + \
+#                 'width= "{}" height="{}" '.format(self.width, self.height) + \
+                 'width= "{}" height="{}" fill="white" '.format(self.width, self.height) + \
                  'viewBox="{} {} {} {}">\n'.format(self.x, self.y, self.width, self.height)
 
         for feature_map in self.feature_maps:
