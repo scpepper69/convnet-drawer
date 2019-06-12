@@ -31,7 +31,6 @@ def is_class_object(class_name):
 def convert_drawer_model(model):
     _input_shape = model.input_shape
 #    figure = Model(input_shape=_input_shape[1:])
-    print(len(_input_shape))
     # CNN Model
     if len(_input_shape) == 4:
         figure = Model(input_shape=_input_shape[1:])
@@ -44,6 +43,7 @@ def convert_drawer_model(model):
     for config in model.get_config()["layers"]:
         class_name = config.get("class_name", False)
         class_config = config.get("config", False)
+        print(class_name,class_config)
         if class_name and class_config:
 #            class_obj = is_class_object(class_name)
             if class_name == "Conv2D":
