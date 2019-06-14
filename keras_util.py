@@ -64,6 +64,8 @@ def convert_drawer_model(model):
                 pass
             elif class_name == "BatchNormalizationV1":
                 pass
+            elif class_name == "BatchNormalization":
+                pass
             else:
                 class_obj = is_class_object(class_name)
                 figure.add(class_obj())
