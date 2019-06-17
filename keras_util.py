@@ -66,6 +66,10 @@ def convert_drawer_model(model):
                 pass
             elif class_name == "BatchNormalization":
                 pass
+            elif class_name == "InputLayer":
+                pass
+            elif class_name == "Sequential":
+                pass
             else:
                 class_obj = is_class_object(class_name)
                 figure.add(class_obj())
