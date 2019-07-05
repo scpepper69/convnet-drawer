@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from keras_models import AlexNet
-from convnet_drawer import Model, Conv2D, MaxPooling2D, Flatten, Dense, GlobalAveragePooling2D
+from convnet_drawer import Model, Conv2D, MaxPooling2D, Flatten, Dense, GlobalAveragePooling2D, AveragePooling2D
 import numpy as np
 
 def get_dense_obj(class_object, config):
@@ -15,6 +15,11 @@ def get_maxpooling2d_obj(class_object, config):
     padding = config.get("padding", False)
     return class_object(pool_size, strides, padding)
 
+def get_avgpooling2d_obj(class_object, config):
+    pool_size = config.get("pool_size", False)
+    strides = config.get("strides", False)
+    padding = config.get("padding", False)
+    return class_object(pool_size, strides, padding)
 
 def get_conv2d_obj(class_object, config):
     filters = config.get("filters", False)
@@ -55,6 +60,10 @@ def convert_drawer_model(model):
                 class_obj = is_class_object(class_name)
                 max_pooling_2d = get_maxpooling2d_obj(class_obj, class_config)
                 figure.add(max_pooling_2d)
+            elif class_name == "AveragePooling2D":
+                class_obj = is_class_object(class_name)
+                avg_pooling_2d = get_avgpooling2d_obj(class_obj, class_config)
+                figure.add(avg_pooling_2d)
             elif class_name == "Dense":
                 class_obj = is_class_object(class_name)
                 dense = get_dense_obj(class_obj, class_config)
