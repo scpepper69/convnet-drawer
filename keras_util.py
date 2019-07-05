@@ -46,6 +46,7 @@ def convert_drawer_model(model):
         print(class_name,class_config)
         if class_name and class_config:
 #            class_obj = is_class_object(class_name)
+            print(class_name)
             if class_name == "Conv2D":
                 class_obj = is_class_object(class_name)
                 conv_2d = get_conv2d_obj(class_obj, class_config)
