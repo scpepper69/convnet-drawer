@@ -70,6 +70,8 @@ def convert_drawer_model(model):
                 pass
             elif class_name == "Sequential":
                 pass
+            elif class_name == "Add":
+                pass
             else:
                 class_obj = is_class_object(class_name)
                 figure.add(class_obj())
