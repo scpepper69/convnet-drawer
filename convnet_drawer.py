@@ -63,14 +63,10 @@ class Model:
                     new_w = w * layer.strides[1] + max(layer.kernel_size[1] - layer.strides[1], 0)
                 self.feature_maps.append(FeatureMap3D(new_h, new_w, filters))
             else:
-                print("X1")
                 if layer.padding == "same":
-                    print("X2")
                     new_h = math.ceil(h / layer.strides[0])
                     new_w = math.ceil(w / layer.strides[1])
                 else:
-                    print("X3")
-                    print(h,layer.kernel_size[0],layer.strides[0])
                     new_h = math.ceil(abs((h - layer.kernel_size[0] + 1) / layer.strides[0]))
                     new_w = math.ceil(abs((w - layer.kernel_size[1] + 1) / layer.strides[1]))
                 self.feature_maps.append(FeatureMap3D(new_h, new_w, filters))
