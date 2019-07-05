@@ -71,8 +71,8 @@ class Model:
                 else:
                     print("X3")
                     print(h,layer.kernel_size[0],layer.strides[0])
-                    new_h = math.ceil((h - layer.kernel_size[0] + 1) / layer.strides[0])
-                    new_w = math.ceil((w - layer.kernel_size[1] + 1) / layer.strides[1])
+                    new_h = math.ceil(abs((h - layer.kernel_size[0] + 1) / layer.strides[0]))
+                    new_w = math.ceil(abs((w - layer.kernel_size[1] + 1) / layer.strides[1]))
                 self.feature_maps.append(FeatureMap3D(new_h, new_w, filters))
         else:
             self.feature_maps.append(FeatureMap1D(layer.filters))
